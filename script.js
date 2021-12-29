@@ -24,10 +24,17 @@ function generatePassword (){
 
   if (!lengthChoice) {
     return;
-  }
-  else if (lengthChoice <=128 || lengthChoice>=8) {
-  confirm ("Is " + lengthChoice + " the length you want for your password?");
   };
+
+//  ** Can't get the return code below for the "cancel" button to work! **
+
+if (lengthChoice <=128 || lengthChoice>=8) {
+    confirm ("Is " + lengthChoice + " the length you want for your password?");
+    if (!lengthChoice) {
+      return;
+    };
+  };
+  
 
   console.log("length:", lengthChoice);
 
@@ -36,9 +43,15 @@ function generatePassword (){
     if (!lengthChoice) {
       return;
       }
+  
+//  ** Can't get the return code below for the "cancel" button to work! **
+
     else if (lengthChoice <=128 || lengthChoice>=8) {
       confirm ("Is " + lengthChoice + " the length you want for your password?");
-      };
+    if (!lengthChoice) {
+      return;
+      }
+    };
     console.log("length revision: ", lengthChoice);
     };
     
