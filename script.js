@@ -101,17 +101,17 @@ function generatePassword (){
       keyChoice = keyChoice.concat("", symbol);
       };
     
-    console.log("Selected Keys: ", keyChoice);  
-
+    console.log("Selected Keys: ", keyChoice); 
+    
   // Randomly generate password string from choice of character types
     // For loop, run based on user input to length prompt (var lengthChoice) + chosen character types (var keyChoice)
-    
-    // ** Why is the loop not drawing from the entire array to randomize? **
-    // ** Why is it not generating the correct length if the number exceeds the string length of var keyChoice? **
+
+    // ** Why is the loop not drawing from the entire string of keyChoice to randomize? **
+    // ** Why is it not generating the correct length if lengthChoice exceeds keyChoice? **
 
   var result="";
 
-// This first attempt at the loop didn't generate a result...
+// This first attempt at the loop didn't generate a result if the lengthChoice is greater than keyChoice...
   // for (var i = 0; i < lengthChoice; i++){ 
   // result += keyChoice[Math.floor(Math.random() * lengthChoice)];
   
