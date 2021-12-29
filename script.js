@@ -15,8 +15,8 @@ function generatePassword (){
 //Present user series of prompts/confirms
   //length of prompt - var lengthChoice
   //length prompt / number between 8 - 128
-// if/conditional check if length between 8-128 [look for condition that has between statement]
-// if true continue to confirms, false ask length again  
+// if/conditional check if length between 8-128
+// if true continue to confirm, false ask length again  
 
   var lengthChoice = prompt("Please choose a length between 8-128 characters for your password.");
 
@@ -40,8 +40,8 @@ function generatePassword (){
     console.log("length revision: ", lengthChoice);
     };
     
-// confirm("Press a button!")
-//confirm for lower, upper, nums, special
+// Confirm process for choosing character types ("Press a button!")
+  //Confirm choices for lower, upper, nums, special
   //lower confirm - var lowerChoice
   //upper confirm - var upperChoice
   //nums confirm - var numsChoice
@@ -59,8 +59,24 @@ function generatePassword (){
   console.log("number choice: ", numsChoice); 
   console.log("symbol choice: ", symbolChoice); 
 
-  // arrays of lower, upper, nums, special
-  // array of all chosen characters - concat into keyChoice
+  //Input Validation - at least 1 character type chosen
+    // if/conditional check; if no character choices made, ask confirm again
+
+  if (!upperChoice && !lowerChoice && !numsChoice && !symbolChoice) {
+    alert ("You did not choose any character types.\nPlease choose again.")
+    upperChoice = confirm ("Use upper case?")
+    lowerChoice = confirm ("Use lower case?")
+    numsChoice = confirm ("Use numbers?")
+    symbolChoice = confirm ("Use symbols?")
+  };
+
+  console.log("upper choice: ", upperChoice); 
+  console.log("lower choice: ", lowerChoice); 
+  console.log("number choice: ", numsChoice); 
+  console.log("symbol choice: ", symbolChoice); 
+
+  // Arrays of lower, upper, nums, special
+  // Array of all chosen characters - concat into var keyChoice
 
   var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var lower = "abcdefghijklmnopqrstuvwxyz";
@@ -69,7 +85,7 @@ function generatePassword (){
   var keyChoice = ""
 
   if (upperChoice) {
-      keyChoice = upper;
+      keyChoice = keyChoice.concat(upper);
       };
   if (lowerChoice) {
       keyChoice = keyChoice.concat("", lower);
@@ -83,31 +99,28 @@ function generatePassword (){
     
     console.log("Selected Keys: ", keyChoice);  
 
-  // Randomly generate password srtring from choices
-    // For loop, run based on length prompt (var lengthChoice) + chosen character types (var keyChoice)
+  // Randomly generate password string from choice of character types
+    // For loop, run based on user input to length prompt (var lengthChoice) + chosen character types (var keyChoice)
+    // ** Why is the loop not drawing from the entire array to randomize? **
+    // ** Why is it not generating the correct length if the number exceeds the string length of var keyChoice? **
 
+  var result="";
+  
+// This first attempt at the loop didn't generate a result...
+  // for (var i = 0; i < lengthChoice; i++){ 
+  // result += keyChoice[Math.floor(Math.random() * lengthChoice)];
+  
+  for (var i = 0; i < lengthChoice; ++i) {
+    var rnum = Math.floor(Math.random() * lengthChoice);
+    result += keyChoice.substring(rnum, rnum+1);
+  };
 
+  console.log("Password: ", result);
 
+  // display password in text box - write to page
+  return result;
 
-  }
-
-  };  
-
-//Input Validation - correct nums, atleast 1 character chosen
-  // if/conditional check using || true continue to generate, false ask confirm again
-
-  // choose from the all options array number of characters required (length prompt)
-    // For loop, run based on length prompt
-    // Math.random - randomly choose index positions from array [double check]
-      //[paste code]
-    // grab from our chosen array, add to password array
-    // convert array to string
-    //return string
-    // if you can figure out how to get string returned, put password in alert to screen
-
-// display password in text box - write to page
-
-// }
+  }; 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
