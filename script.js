@@ -16,9 +16,11 @@ function generatePassword (){
   //length of prompt - var lengthChoice
   //length prompt / number between 8 - 128
 // if/conditional check if length between 8-128
-// if true continue to confirm, false ask length again  
+// if true continue to confirm, false ask length again
 
-  var lengthChoice = prompt("Please choose a length between 8-128 characters for your password.");
+  // ** How do I make this a loop that repeats until the condition is fulfilled? ** 
+
+  var lengthChoice = prompt("Pick a length between 8-128 characters for your password.");
 
   if (!lengthChoice) {
     return;
@@ -30,7 +32,7 @@ function generatePassword (){
   console.log("length:", lengthChoice);
 
   if (lengthChoice <8 || lengthChoice >128) {
-    lengthChoice = prompt ("This is not the right length.\nPlease choose a correct number - between 8 and 128.");
+    lengthChoice = prompt ("Sorry! This is not an acceptable length.\nPlease choose a correct number - between 8 and 128.");
     if (!lengthChoice) {
       return;
       }
@@ -62,6 +64,8 @@ function generatePassword (){
   //Input Validation - at least 1 character type chosen
     // if/conditional check; if no character choices made, ask confirm again
 
+  // ** How do I make this a loop that repeats until the condition is fulfilled? ** 
+
   if (!upperChoice && !lowerChoice && !numsChoice && !symbolChoice) {
     alert ("You did not choose any character types.\nPlease choose again.")
     upperChoice = confirm ("Use upper case?")
@@ -70,10 +74,10 @@ function generatePassword (){
     symbolChoice = confirm ("Use symbols?")
   };
 
-  console.log("upper choice: ", upperChoice); 
-  console.log("lower choice: ", lowerChoice); 
-  console.log("number choice: ", numsChoice); 
-  console.log("symbol choice: ", symbolChoice); 
+  console.log("upper choice 2: ", upperChoice); 
+  console.log("lower choice 2: ", lowerChoice); 
+  console.log("number choice 2: ", numsChoice); 
+  console.log("symbol choice 2: ", symbolChoice); 
 
   // Arrays of lower, upper, nums, special
   // Array of all chosen characters - concat into var keyChoice
@@ -101,11 +105,12 @@ function generatePassword (){
 
   // Randomly generate password string from choice of character types
     // For loop, run based on user input to length prompt (var lengthChoice) + chosen character types (var keyChoice)
+    
     // ** Why is the loop not drawing from the entire array to randomize? **
     // ** Why is it not generating the correct length if the number exceeds the string length of var keyChoice? **
 
   var result="";
-  
+
 // This first attempt at the loop didn't generate a result...
   // for (var i = 0; i < lengthChoice; i++){ 
   // result += keyChoice[Math.floor(Math.random() * lengthChoice)];
