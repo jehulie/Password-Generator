@@ -100,7 +100,7 @@ function generatePassword (){
       keyChoice = keyChoice.concat("", symbol);
       };
     
-    console.log("Selected Keys: ", keyChoice); 
+  console.log("Selected Keys: ", keyChoice); 
     
 // Randomly generate password string from choice of character types
   // For loop, run based on user input to length prompt (var lengthChoice) + chosen character types (var keyChoice)
