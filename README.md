@@ -25,4 +25,5 @@ Here's a screenshot of the application's interface:
 ![The Password Generator displays a button to "Generate Password".](./Assets/03-javascript-homework-demo.png)
 
 
-Here's a link to the deployed application:
+Here's a link to the deployed application: 
+https://jehulie.github.io/Password-Generator/
